@@ -9,7 +9,7 @@
     "heroku-postbuild": "npm run build",
     "tsoa:spec": "tsoa spec --logLevel warn",
     "migrate:prod": "prisma migrate deploy",
-    "postinstall": "prisma generate"
+    "postinstall": "npx prisma generate"
   },
   "keywords": [],
   "author": "@mariaximena0724 y emilia",
