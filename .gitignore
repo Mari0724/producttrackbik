@@ -1,0 +1,15 @@
+# Node modules en todo el proyecto
+node_modules/
+
+# Builds backend
+backend/dist/
+
+# Builds frontend 
+frontend/dist/
+
+# Variables de entorno
+.env
+
+# Tests y archivos sueltos
+test/
+test-upload.html
