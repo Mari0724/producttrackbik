@@ -1,0 +1,3757 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"ResponseMessageWithToken": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"detalles": {},
+					"token": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UserDTO": {
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"correo": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"nombreCompleto": {
+						"type": "string"
+					},
+					"telefono": {
+						"type": "string"
+					},
+					"direccion": {
+						"type": "string"
+					},
+					"fotoPerfil": {
+						"type": "string"
+					},
+					"tipoUsuario": {
+						"type": "string",
+						"enum": [
+							"INDIVIDUAL",
+							"EMPRESARIAL"
+						]
+					},
+					"nombreEmpresa": {
+						"type": "string"
+					},
+					"nit": {
+						"type": "string"
+					},
+					"rol": {
+						"type": "string",
+						"enum": [
+							"USUARIO",
+							"EQUIPO",
+							"ADMIN",
+							"DESARROLLADOR"
+						]
+					},
+					"rolEquipo": {
+						"type": "string",
+						"enum": [
+							"LECTOR",
+							"COMENTARISTA",
+							"EDITOR"
+						]
+					},
+					"estado": {
+						"type": "string",
+						"enum": [
+							"activo",
+							"inactivo"
+						]
+					},
+					"empresaId": {
+						"type": "number",
+						"format": "double"
+					},
+					"perfilCompleto": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"username",
+					"correo",
+					"password",
+					"nombreCompleto",
+					"telefono",
+					"direccion",
+					"rol"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ChangePasswordDTO": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"currentPassword": {
+						"type": "string"
+					},
+					"newPassword": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"currentPassword",
+					"newPassword"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ResponseMessage": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"detalles": {}
+				},
+				"required": [
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Partial_UserDTO_": {
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"correo": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"nombreCompleto": {
+						"type": "string"
+					},
+					"telefono": {
+						"type": "string"
+					},
+					"direccion": {
+						"type": "string"
+					},
+					"fotoPerfil": {
+						"type": "string"
+					},
+					"tipoUsuario": {
+						"type": "string",
+						"enum": [
+							"INDIVIDUAL",
+							"EMPRESARIAL"
+						]
+					},
+					"nombreEmpresa": {
+						"type": "string"
+					},
+					"nit": {
+						"type": "string"
+					},
+					"rol": {
+						"type": "string",
+						"enum": [
+							"USUARIO",
+							"EQUIPO",
+							"ADMIN",
+							"DESARROLLADOR"
+						]
+					},
+					"rolEquipo": {
+						"type": "string",
+						"enum": [
+							"LECTOR",
+							"COMENTARISTA",
+							"EDITOR"
+						]
+					},
+					"estado": {
+						"type": "string",
+						"enum": [
+							"activo",
+							"inactivo"
+						]
+					},
+					"empresaId": {
+						"type": "number",
+						"format": "double"
+					},
+					"perfilCompleto": {
+						"type": "boolean"
+					}
+				},
+				"type": "object",
+				"description": "Make all properties in T optional"
+			},
+			"ResponseMessageWithData_any_": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"detalles": {},
+					"data": {}
+				},
+				"required": [
+					"message",
+					"data"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"_36_Enums.EstadoProducto": {
+				"type": "string",
+				"enum": [
+					"DISPONIBLE",
+					"AGOTADO",
+					"RESERVADO",
+					"VENCIDO",
+					"ELIMINADO"
+				]
+			},
+			"EstadoProducto": {
+				"$ref": "#/components/schemas/_36_Enums.EstadoProducto"
+			},
+			"ProductosDTO": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"codigoBarras": {
+						"type": "string",
+						"nullable": true
+					},
+					"codigoQR": {
+						"type": "string",
+						"nullable": true
+					},
+					"nombre": {
+						"type": "string"
+					},
+					"descripcion": {
+						"type": "string"
+					},
+					"cantidad": {
+						"type": "number",
+						"format": "double"
+					},
+					"precio": {
+						"type": "number",
+						"format": "double"
+					},
+					"fechaAdquisicion": {
+						"type": "string"
+					},
+					"fechaVencimiento": {
+						"type": "string"
+					},
+					"usuarioId": {
+						"type": "number",
+						"format": "double"
+					},
+					"estado": {
+						"$ref": "#/components/schemas/EstadoProducto"
+					},
+					"imagen": {
+						"type": "string"
+					},
+					"categoria": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"nombre",
+					"descripcion",
+					"cantidad",
+					"precio",
+					"fechaAdquisicion",
+					"fechaVencimiento",
+					"usuarioId",
+					"estado",
+					"imagen"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"JsonValue": {
+				"anyOf": [
+					{
+						"type": "string"
+					},
+					{
+						"type": "number",
+						"format": "double"
+					},
+					{
+						"type": "boolean"
+					},
+					{
+						"$ref": "#/components/schemas/JsonObject"
+					},
+					{
+						"$ref": "#/components/schemas/JsonArray"
+					}
+				],
+				"nullable": true,
+				"description": "From https://github.com/sindresorhus/type-fest/\r\nMatches any valid JSON value."
+			},
+			"JsonObject": {
+				"properties": {},
+				"additionalProperties": {
+					"$ref": "#/components/schemas/JsonValue"
+				},
+				"type": "object",
+				"description": "From https://github.com/sindresorhus/type-fest/\r\nMatches a JSON object.\r\nThis type can be useful to enforce some input to be JSON-compatible or as a super-type to be extended from."
+			},
+			"JsonArray": {
+				"description": "From https://github.com/sindresorhus/type-fest/\r\nMatches a JSON array.",
+				"properties": {},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"_36_Enums.TipoUsuario": {
+				"type": "string",
+				"enum": [
+					"INDIVIDUAL",
+					"EMPRESARIAL"
+				]
+			},
+			"LoginResponse": {
+				"properties": {
+					"token": {
+						"type": "string"
+					},
+					"requiereCompletarPerfil": {
+						"type": "boolean"
+					},
+					"user": {
+						"properties": {
+							"empresaId": {
+								"type": "number",
+								"format": "double",
+								"nullable": true
+							},
+							"perfilCompleto": {
+								"type": "boolean"
+							},
+							"rolEquipo": {
+								"type": "string"
+							},
+							"tipoUsuario": {
+								"type": "string",
+								"nullable": true
+							},
+							"rol": {
+								"type": "string"
+							},
+							"correo": {
+								"type": "string"
+							},
+							"username": {
+								"type": "string"
+							},
+							"idUsuario": {
+								"type": "number",
+								"format": "double"
+							}
+						},
+						"required": [
+							"empresaId",
+							"perfilCompleto",
+							"rolEquipo",
+							"tipoUsuario",
+							"rol",
+							"correo",
+							"username",
+							"idUsuario"
+						],
+						"type": "object"
+					}
+				},
+				"required": [
+					"token",
+					"requiereCompletarPerfil",
+					"user"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"LoginRequest": {
+				"properties": {
+					"correo": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"correo",
+					"password"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SolicitudResetDTO": {
+				"properties": {
+					"correo": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"correo"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ConfirmacionResetDTO": {
+				"properties": {
+					"token": {
+						"type": "string"
+					},
+					"nuevaContrasena": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"token",
+					"nuevaContrasena"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"HistorialInventarioDTO": {
+				"properties": {
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"productoId": {
+						"type": "number",
+						"format": "double"
+					},
+					"nombreProducto": {
+						"type": "string"
+					},
+					"accion": {
+						"type": "string"
+					},
+					"cantidad_anterior": {
+						"type": "number",
+						"format": "double"
+					},
+					"cantidad_nueva": {
+						"type": "number",
+						"format": "double"
+					},
+					"precio_anterior": {
+						"type": "number",
+						"format": "double"
+					},
+					"precio_nuevo": {
+						"type": "number",
+						"format": "double"
+					},
+					"fechaCambio": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"productoId",
+					"nombreProducto",
+					"accion",
+					"cantidad_anterior",
+					"cantidad_nueva",
+					"precio_anterior",
+					"precio_nuevo",
+					"fechaCambio"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"_36_Enums.rolEquipo": {
+				"type": "string",
+				"enum": [
+					"LECTOR",
+					"COMENTARISTA",
+					"EDITOR"
+				]
+			},
+			"EquipoDTO": {
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"correo": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"nombreCompleto": {
+						"type": "string"
+					},
+					"telefono": {
+						"type": "string"
+					},
+					"direccion": {
+						"type": "string"
+					},
+					"fotoPerfil": {
+						"type": "string"
+					},
+					"rolEquipo": {
+						"type": "string",
+						"enum": [
+							"LECTOR",
+							"COMENTARISTA",
+							"EDITOR"
+						]
+					},
+					"estado": {
+						"type": "string",
+						"enum": [
+							"activo",
+							"inactivo"
+						]
+					},
+					"empresaId": {
+						"type": "number",
+						"format": "double"
+					},
+					"perfilCompleto": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"username",
+					"correo",
+					"password",
+					"nombreCompleto",
+					"telefono",
+					"direccion",
+					"rolEquipo"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Partial_EquipoDTO_": {
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"correo": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					},
+					"nombreCompleto": {
+						"type": "string"
+					},
+					"telefono": {
+						"type": "string"
+					},
+					"direccion": {
+						"type": "string"
+					},
+					"fotoPerfil": {
+						"type": "string"
+					},
+					"rolEquipo": {
+						"type": "string",
+						"enum": [
+							"LECTOR",
+							"COMENTARISTA",
+							"EDITOR"
+						]
+					},
+					"estado": {
+						"type": "string",
+						"enum": [
+							"activo",
+							"inactivo"
+						]
+					},
+					"empresaId": {
+						"type": "number",
+						"format": "double"
+					},
+					"perfilCompleto": {
+						"type": "boolean"
+					}
+				},
+				"type": "object",
+				"description": "Make all properties in T optional"
+			},
+			"ComentarioDTO": {
+				"properties": {
+					"idComentario": {
+						"type": "number",
+						"format": "double"
+					},
+					"idUsuario": {
+						"type": "number",
+						"format": "double"
+					},
+					"idProducto": {
+						"type": "number",
+						"format": "double"
+					},
+					"comentario": {
+						"type": "string"
+					},
+					"fechaComentario": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"estado": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"idComentario",
+					"idUsuario",
+					"idProducto",
+					"comentario",
+					"fechaComentario",
+					"estado",
+					"createdAt",
+					"updatedAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CrearComentarioBody": {
+				"properties": {
+					"idUsuario": {
+						"type": "number",
+						"format": "double"
+					},
+					"idProducto": {
+						"type": "number",
+						"format": "double"
+					},
+					"comentario": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"idUsuario",
+					"idProducto",
+					"comentario"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ActualizarComentarioBody": {
+				"properties": {
+					"comentario": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"comentario"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"jwt": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			},
+			"legacyJwt": {
+				"type": "apiKey",
+				"in": "header",
+				"name": "Authorization"
+			}
+		}
+	},
+	"info": {
+		"title": "producttrack",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {
+			"name": "@mariaximena0724 y emilia"
+		}
+	},
+	"paths": {
+		"/usuarios": {
+			"get": {
+				"operationId": "GetAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"description": "Obtiene todos los usuarios con filtros opcionales.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/user.controller)",
+				"tags": [
+					"Usuarios"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "username",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "correo",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "nombreCompleto",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "telefono",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "nit",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "estado",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "rol",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "tipoUsuario",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"INDIVIDUAL",
+								"EMPRESARIAL"
+							]
+						}
+					},
+					{
+						"in": "query",
+						"name": "rolEquipo",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"LECTOR",
+								"COMENTARISTA",
+								"EDITOR"
+							]
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"201": {
+						"description": "Usuario creado correctamente",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseMessageWithToken"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Datos inválidos"
+					}
+				},
+				"description": "Crea un nuevo usuario.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/user.controller)",
+				"tags": [
+					"Usuarios"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/usuarios/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"description": "Obtiene un usuario por su ID.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/user.controller)",
+				"tags": [
+					"Usuarios"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateUsuario",
+				"responses": {
+					"200": {
+						"description": "Usuario actualizado",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseMessage"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Usuario no encontrado"
+					},
+					"500": {
+						"description": "Error del servidor"
+					}
+				},
+				"description": "Actualiza los datos de un usuario.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/user.controller)",
+				"tags": [
+					"Usuarios"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Partial_UserDTO_"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "DeleteUsuario",
+				"responses": {
+					"200": {
+						"description": "Usuario eliminado",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseMessage"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Usuario no encontrado"
+					},
+					"500": {
+						"description": "Error del servidor"
+					}
+				},
+				"description": "Elimina (soft delete) un usuario por su ID.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/user.controller)",
+				"tags": [
+					"Usuarios"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/usuarios/empresa/{id}": {
+			"get": {
+				"operationId": "GetEmpresaByIdController",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"description": "Obtiene información de una empresa por ID de usuario.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/user.controller)",
+				"tags": [
+					"Usuarios"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/usuarios/cambiarContrasena": {
+			"put": {
+				"operationId": "CambiarContrasena",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Cambia la contraseña de un usuario.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/user.controller)",
+				"tags": [
+					"Usuarios",
+					"Usuarios"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ChangePasswordDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/usuarios/{id}/reactivar": {
+			"put": {
+				"operationId": "ReactivarUsuario",
+				"responses": {
+					"200": {
+						"description": "Usuario reactivado",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseMessage"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "No se pudo reactivar el usuario"
+					},
+					"404": {
+						"description": "Usuario no encontrado"
+					}
+				},
+				"description": "Reactiva un usuario inactivo.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/user.controller)",
+				"tags": [
+					"Usuarios"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/productos": {
+			"get": {
+				"operationId": "GetAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene todos los productos con filtros opcionales.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "nombre",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "categoria",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "estado",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "fechaAdquisicionDesde",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "fechaAdquisicionHasta",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "fechaVencimientoDesde",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "fechaVencimientoHasta",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"201": {
+						"description": "Producto creado correctamente",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"$ref": "#/components/schemas/ResponseMessageWithData_any_"
+										},
+										{
+											"$ref": "#/components/schemas/ResponseMessage"
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Datos inválidos"
+					}
+				},
+				"description": "Crea un nuevo producto en la base de datos.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"description": "Objeto con los datos del producto",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ProductosDTO",
+								"description": "Objeto con los datos del producto"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/productos/categorias": {
+			"get": {
+				"operationId": "ObtenerCategorias",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"items": {
+												"type": "string"
+											},
+											"type": "array"
+										},
+										{
+											"$ref": "#/components/schemas/ResponseMessage"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene las categorías únicas para los productos según tipoUsuario.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tipoUsuario",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/productos/por-categoria": {
+			"get": {
+				"operationId": "GetByCategoria",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"description": "Devuelve todos los productos en una categoría específica.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "categoria",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/productos/nombres/{idUsuario}": {
+			"get": {
+				"operationId": "GetNombresProductosDelUsuario",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"type": "string"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Devuelve los nombres de los productos registrados por un usuario.\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "idUsuario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/productos/cantidad-por-categoria": {
+			"get": {
+				"operationId": "GetCantidadPorCategoria",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"description": "Obtiene la cantidad de productos agrupados por categoría.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/productos/cantidad-por-rango-precio": {
+			"get": {
+				"operationId": "GetCantidadPorRangoPrecio",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"description": "Obtiene la cantidad de productos agrupados por rangos de precio.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/productos/{id}": {
+			"get": {
+				"operationId": "GetById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"description": "Obtiene un producto por su ID.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateProducto",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseMessage"
+								}
+							}
+						}
+					}
+				},
+				"description": "Actualiza un producto existente.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "DeleteProducto",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseMessage"
+								}
+							}
+						}
+					}
+				},
+				"description": "Elimina un producto de la base de datos.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/productos.controller)",
+				"tags": [
+					"productos"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/preferencias-notificaciones/{idUsuario}": {
+			"get": {
+				"operationId": "ObtenerPreferencias",
+				"responses": {
+					"200": {
+						"description": "Objeto con las preferencias de notificación",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"actualizacion": {
+											"type": "boolean"
+										},
+										"reposicion": {
+											"type": "boolean"
+										},
+										"comentarios": {
+											"type": "boolean"
+										},
+										"productoVencido": {
+											"type": "boolean"
+										},
+										"stockBajo": {
+											"type": "boolean"
+										}
+									},
+									"required": [
+										"actualizacion",
+										"reposicion",
+										"comentarios",
+										"productoVencido",
+										"stockBajo"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene las preferencias de notificación de un usuario específico.\r\nSi no existen en la base de datos, se devuelven valores por defecto.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/preferencias.controller)",
+				"tags": [
+					"Preferencias de Notificaciones"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID del usuario",
+						"in": "path",
+						"name": "idUsuario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "ActualizarPreferencias",
+				"responses": {
+					"200": {
+						"description": "Mensaje de confirmación",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Crea o actualiza las preferencias de notificación de un usuario.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/preferencias.controller)",
+				"tags": [
+					"Preferencias de Notificaciones"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID del usuario",
+						"in": "path",
+						"name": "idUsuario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "Objeto con las preferencias a modificar",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"actualizacion": {
+										"type": "boolean"
+									},
+									"reposicion": {
+										"type": "boolean"
+									},
+									"comentarios": {
+										"type": "boolean"
+									},
+									"productoVencido": {
+										"type": "boolean"
+									},
+									"stockBajo": {
+										"type": "boolean"
+									}
+								},
+								"type": "object",
+								"description": "Objeto con las preferencias a modificar"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/nutriscan": {
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"201": {
+						"description": "Registro creado",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"isTest": {
+													"type": "boolean"
+												},
+												"actualizadoEn": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"fechaAnalisis": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"tipoAnalisis": {
+													"type": "string"
+												},
+												"respuesta": {
+													"$ref": "#/components/schemas/JsonValue"
+												},
+												"consulta": {
+													"type": "string"
+												},
+												"esAlimento": {
+													"type": "boolean"
+												},
+												"usuarioId": {
+													"type": "number",
+													"format": "double"
+												},
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"isTest",
+												"actualizadoEn",
+												"fechaAnalisis",
+												"tipoAnalisis",
+												"respuesta",
+												"consulta",
+												"esAlimento",
+												"usuarioId",
+												"id"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Datos inválidos"
+					},
+					"403": {
+						"description": "Acceso denegado"
+					}
+				},
+				"description": "Crea un nuevo análisis de producto usando NutriScan.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/nutriscan.controller)",
+				"tags": [
+					"NutriScan"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"description": "Datos del análisis (sin idUsuario).",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"description": "Datos del análisis (sin idUsuario)."
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "FindAll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"items": {
+												"properties": {
+													"isTest": {
+														"type": "boolean"
+													},
+													"actualizadoEn": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"fechaAnalisis": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"tipoAnalisis": {
+														"type": "string"
+													},
+													"respuesta": {
+														"$ref": "#/components/schemas/JsonValue"
+													},
+													"consulta": {
+														"type": "string"
+													},
+													"esAlimento": {
+														"type": "boolean"
+													},
+													"usuarioId": {
+														"type": "number",
+														"format": "double"
+													},
+													"id": {
+														"type": "number",
+														"format": "double"
+													}
+												},
+												"required": [
+													"isTest",
+													"actualizadoEn",
+													"fechaAnalisis",
+													"tipoAnalisis",
+													"respuesta",
+													"consulta",
+													"esAlimento",
+													"usuarioId",
+													"id"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene todos los análisis (admin o desarrollador).\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/nutriscan.controller)",
+				"tags": [
+					"NutriScan"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/nutriscan/usuario/{usuarioId}": {
+			"get": {
+				"operationId": "FindByUserId",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"items": {
+												"allOf": [
+													{
+														"properties": {
+															"usuario": {
+																"properties": {
+																	"tipoUsuario": {
+																		"$ref": "#/components/schemas/_36_Enums.TipoUsuario"
+																	},
+																	"nombreCompleto": {
+																		"type": "string"
+																	}
+																},
+																"required": [
+																	"tipoUsuario",
+																	"nombreCompleto"
+																],
+																"type": "object"
+															}
+														},
+														"required": [
+															"usuario"
+														],
+														"type": "object"
+													},
+													{
+														"properties": {
+															"isTest": {
+																"type": "boolean"
+															},
+															"actualizadoEn": {
+																"type": "string",
+																"format": "date-time"
+															},
+															"fechaAnalisis": {
+																"type": "string",
+																"format": "date-time"
+															},
+															"tipoAnalisis": {
+																"type": "string"
+															},
+															"respuesta": {
+																"$ref": "#/components/schemas/JsonValue"
+															},
+															"consulta": {
+																"type": "string"
+															},
+															"esAlimento": {
+																"type": "boolean"
+															},
+															"usuarioId": {
+																"type": "number",
+																"format": "double"
+															},
+															"id": {
+																"type": "number",
+																"format": "double"
+															}
+														},
+														"required": [
+															"isTest",
+															"actualizadoEn",
+															"fechaAnalisis",
+															"tipoAnalisis",
+															"respuesta",
+															"consulta",
+															"esAlimento",
+															"usuarioId",
+															"id"
+														],
+														"type": "object"
+													}
+												]
+											},
+											"type": "array"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene todos los análisis de un usuario (solo ADMIN).\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/nutriscan.controller)",
+				"tags": [
+					"NutriScan"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"description": "ID del usuario.",
+						"in": "path",
+						"name": "usuarioId",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/nutriscan/{id}": {
+			"put": {
+				"operationId": "Update",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"isTest": {
+													"type": "boolean"
+												},
+												"actualizadoEn": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"fechaAnalisis": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"tipoAnalisis": {
+													"type": "string"
+												},
+												"respuesta": {
+													"$ref": "#/components/schemas/JsonValue"
+												},
+												"consulta": {
+													"type": "string"
+												},
+												"esAlimento": {
+													"type": "boolean"
+												},
+												"usuarioId": {
+													"type": "number",
+													"format": "double"
+												},
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"isTest",
+												"actualizadoEn",
+												"fechaAnalisis",
+												"tipoAnalisis",
+												"respuesta",
+												"consulta",
+												"esAlimento",
+												"usuarioId",
+												"id"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"message": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"message"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Datos inválidos"
+					}
+				},
+				"description": "Obtiene todos los análisis de un usuario (solo ADMIN).\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/nutriscan.controller)",
+				"tags": [
+					"NutriScan"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "Delete",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Elimina un análisis de NutriScan.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/nutriscan.controller)",
+				"tags": [
+					"NutriScan"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"description": "ID del análisis.",
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/notificaciones/stock-bajo": {
+			"post": {
+				"operationId": "EnviarNotificacionStockBajo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Envia notificaciones de productos con stock bajo.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/notificaciones.controller\r\n)",
+				"tags": [
+					"Notificaciones"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"productos": {
+										"items": {
+											"properties": {
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"id"
+											],
+											"type": "object"
+										},
+										"type": "array"
+									}
+								},
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notificaciones/producto-vencido": {
+			"post": {
+				"operationId": "EnviarNotificacionProductoVencido",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Envia notificaciones de productos vencidos.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/notificaciones.controller)",
+				"tags": [
+					"Notificaciones"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"productos": {
+										"items": {
+											"properties": {
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"id"
+											],
+											"type": "object"
+										},
+										"type": "array"
+									}
+								},
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notificaciones/comentario-producto": {
+			"post": {
+				"operationId": "EnviarNotificacionComentarioProducto",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Envia notificación de nuevo comentario en producto.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/notificaciones.controller)",
+				"tags": [
+					"Notificaciones"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"idComentario": {
+										"type": "number",
+										"format": "double"
+									}
+								},
+								"required": [
+									"idComentario"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notificaciones/reposicion-recomendada": {
+			"post": {
+				"operationId": "EnviarNotificacionReposicionRecomendada",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Envia notificaciones de productos con recomendación de reposición.",
+				"tags": [
+					"Notificaciones"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": false,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"productos": {
+										"items": {
+											"properties": {
+												"id": {
+													"type": "number",
+													"format": "double"
+												}
+											},
+											"required": [
+												"id"
+											],
+											"type": "object"
+										},
+										"type": "array"
+									}
+								},
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notificaciones/actualizacion-app": {
+			"post": {
+				"operationId": "EnviarNotificacionActualizacionApp",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Envia notificaciones de actualizaciones de la aplicación.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/notificaciones.controller)",
+				"tags": [
+					"Notificaciones"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"mensaje": {
+										"type": "string"
+									},
+									"titulo": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"mensaje",
+									"titulo"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notificaciones/usuario/{idUsuario}": {
+			"get": {
+				"operationId": "ObtenerNotificacionesPorUsuario",
+				"responses": {
+					"200": {
+						"description": "Lista de notificaciones recibidas.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"properties": {
+											"fechaEnvio": {
+												"type": "string",
+												"format": "date-time"
+											},
+											"leida": {
+												"type": "boolean"
+											},
+											"mensaje": {
+												"type": "string"
+											},
+											"titulo": {
+												"type": "string"
+											},
+											"tipo": {
+												"type": "string"
+											},
+											"idNotificacion": {
+												"type": "number",
+												"format": "double"
+											}
+										},
+										"required": [
+											"fechaEnvio",
+											"leida",
+											"mensaje",
+											"titulo",
+											"tipo",
+											"idNotificacion"
+										],
+										"type": "object"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene las notificaciones asociadas a un usuario.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/notificaciones.controller)",
+				"tags": [
+					"Notificaciones"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID del usuario.",
+						"in": "path",
+						"name": "idUsuario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/notificaciones/{idNotificacion}": {
+			"patch": {
+				"operationId": "MarcarComoLeida",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Marca una notificación como leída.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/notificaciones.controller)",
+				"tags": [
+					"Notificaciones"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID de la notificación.",
+						"in": "path",
+						"name": "idNotificacion",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/notificaciones/preferencias/{idUsuario}": {
+			"patch": {
+				"operationId": "ActualizarPreferencias",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Actualiza las preferencias de notificación de un usuario.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/notificaciones.controller)",
+				"tags": [
+					"Notificaciones"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID del usuario.",
+						"in": "path",
+						"name": "idUsuario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"actualizacion": {
+										"type": "boolean"
+									},
+									"reposicion": {
+										"type": "boolean"
+									},
+									"comentarios": {
+										"type": "boolean"
+									},
+									"productoVencido": {
+										"type": "boolean"
+									},
+									"stockBajo": {
+										"type": "boolean"
+									}
+								},
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/login": {
+			"post": {
+				"operationId": "Login",
+				"responses": {
+					"200": {
+						"description": "Token de autenticación y datos del usuario.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LoginResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Inicia sesión en el sistema con correo y contraseña.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/log.controller)",
+				"tags": [
+					"Autenticación"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"description": "Datos de inicio de sesión.",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/LoginRequest",
+								"description": "Datos de inicio de sesión."
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/solicitar-reset": {
+			"post": {
+				"operationId": "SolicitarReset",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Solicita el restablecimiento de contraseña.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/log.controller)",
+				"tags": [
+					"Autenticación"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SolicitudResetDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/confirmar-reset": {
+			"post": {
+				"operationId": "ConfirmarReset",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Confirma el restablecimiento de contraseña con el token recibido.\r\n\r\n👉 [Documentación general en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/log.controller)",
+				"tags": [
+					"Autenticación"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ConfirmacionResetDTO"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/historial/usuario/{idUsuario}": {
+			"get": {
+				"operationId": "ObtenerHistorialPorUsuario",
+				"responses": {
+					"200": {
+						"description": "Lista de registros de historial.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/HistorialInventarioDTO"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene el historial de movimientos del inventario por usuario.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/historial.controller)",
+				"tags": [
+					"Historial"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID del usuario.",
+						"in": "path",
+						"name": "idUsuario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/equipo": {
+			"post": {
+				"operationId": "CrearEquipo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"deletedAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"idUsuario": {
+													"type": "number",
+													"format": "double"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"perfilCompleto": {
+													"type": "boolean"
+												},
+												"empresaId": {
+													"type": "number",
+													"format": "double"
+												},
+												"estado": {
+													"type": "string"
+												},
+												"rolEquipo": {
+													"$ref": "#/components/schemas/_36_Enums.rolEquipo"
+												},
+												"rol": {
+													"type": "string"
+												},
+												"nit": {
+													"type": "string"
+												},
+												"nombreEmpresa": {
+													"type": "string"
+												},
+												"tipoUsuario": {
+													"$ref": "#/components/schemas/_36_Enums.TipoUsuario"
+												},
+												"fotoPerfil": {
+													"type": "string"
+												},
+												"direccion": {
+													"type": "string"
+												},
+												"telefono": {
+													"type": "string"
+												},
+												"nombreCompleto": {
+													"type": "string"
+												},
+												"password": {
+													"type": "string"
+												},
+												"correo": {
+													"type": "string"
+												},
+												"username": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"deletedAt",
+												"idUsuario",
+												"updatedAt",
+												"createdAt",
+												"perfilCompleto",
+												"empresaId",
+												"estado",
+												"rolEquipo",
+												"rol",
+												"nit",
+												"nombreEmpresa",
+												"tipoUsuario",
+												"fotoPerfil",
+												"direccion",
+												"telefono",
+												"nombreCompleto",
+												"password",
+												"correo",
+												"username"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"mensaje": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"mensaje"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Crea un nuevo miembro del equipo.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/equipo.controller)",
+				"tags": [
+					"Equipo"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/EquipoDTO"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "ObtenerTodosLosEquipos",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"items": {
+												"properties": {
+													"deletedAt": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"idUsuario": {
+														"type": "number",
+														"format": "double"
+													},
+													"updatedAt": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"createdAt": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"perfilCompleto": {
+														"type": "boolean"
+													},
+													"empresaId": {
+														"type": "number",
+														"format": "double"
+													},
+													"estado": {
+														"type": "string"
+													},
+													"rolEquipo": {
+														"$ref": "#/components/schemas/_36_Enums.rolEquipo"
+													},
+													"rol": {
+														"type": "string"
+													},
+													"nit": {
+														"type": "string"
+													},
+													"nombreEmpresa": {
+														"type": "string"
+													},
+													"tipoUsuario": {
+														"$ref": "#/components/schemas/_36_Enums.TipoUsuario"
+													},
+													"fotoPerfil": {
+														"type": "string"
+													},
+													"direccion": {
+														"type": "string"
+													},
+													"telefono": {
+														"type": "string"
+													},
+													"nombreCompleto": {
+														"type": "string"
+													},
+													"password": {
+														"type": "string"
+													},
+													"correo": {
+														"type": "string"
+													},
+													"username": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"deletedAt",
+													"idUsuario",
+													"updatedAt",
+													"createdAt",
+													"perfilCompleto",
+													"empresaId",
+													"estado",
+													"rolEquipo",
+													"rol",
+													"nit",
+													"nombreEmpresa",
+													"tipoUsuario",
+													"fotoPerfil",
+													"direccion",
+													"telefono",
+													"nombreCompleto",
+													"password",
+													"correo",
+													"username"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										{
+											"properties": {
+												"mensaje": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"mensaje"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene todos los miembros del equipo de una empresa.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/equipo.controller)",
+				"tags": [
+					"Equipo"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": []
+			}
+		},
+		"/equipo/filtrar": {
+			"get": {
+				"operationId": "FiltrarEquipos",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"items": {
+												"properties": {
+													"deletedAt": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"idUsuario": {
+														"type": "number",
+														"format": "double"
+													},
+													"updatedAt": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"createdAt": {
+														"type": "string",
+														"format": "date-time"
+													},
+													"perfilCompleto": {
+														"type": "boolean"
+													},
+													"empresaId": {
+														"type": "number",
+														"format": "double"
+													},
+													"estado": {
+														"type": "string"
+													},
+													"rolEquipo": {
+														"$ref": "#/components/schemas/_36_Enums.rolEquipo"
+													},
+													"rol": {
+														"type": "string"
+													},
+													"nit": {
+														"type": "string"
+													},
+													"nombreEmpresa": {
+														"type": "string"
+													},
+													"tipoUsuario": {
+														"$ref": "#/components/schemas/_36_Enums.TipoUsuario"
+													},
+													"fotoPerfil": {
+														"type": "string"
+													},
+													"direccion": {
+														"type": "string"
+													},
+													"telefono": {
+														"type": "string"
+													},
+													"nombreCompleto": {
+														"type": "string"
+													},
+													"password": {
+														"type": "string"
+													},
+													"correo": {
+														"type": "string"
+													},
+													"username": {
+														"type": "string"
+													}
+												},
+												"required": [
+													"deletedAt",
+													"idUsuario",
+													"updatedAt",
+													"createdAt",
+													"perfilCompleto",
+													"empresaId",
+													"estado",
+													"rolEquipo",
+													"rol",
+													"nit",
+													"nombreEmpresa",
+													"tipoUsuario",
+													"fotoPerfil",
+													"direccion",
+													"telefono",
+													"nombreCompleto",
+													"password",
+													"correo",
+													"username"
+												],
+												"type": "object"
+											},
+											"type": "array"
+										},
+										{
+											"properties": {
+												"mensaje": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"mensaje"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Filtra los miembros del equipo según parámetros.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/equipo.controller)",
+				"tags": [
+					"Equipo"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "nombreCompleto",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "correo",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "rolEquipo",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"LECTOR",
+								"COMENTARISTA",
+								"EDITOR"
+							]
+						}
+					},
+					{
+						"in": "query",
+						"name": "estado",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"activo",
+								"inactivo"
+							]
+						}
+					},
+					{
+						"in": "query",
+						"name": "perfilCompleto",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"true",
+								"false"
+							]
+						}
+					}
+				]
+			}
+		},
+		"/equipo/{id}": {
+			"get": {
+				"operationId": "ObtenerEquipoPorId",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"deletedAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"idUsuario": {
+													"type": "number",
+													"format": "double"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"perfilCompleto": {
+													"type": "boolean"
+												},
+												"empresaId": {
+													"type": "number",
+													"format": "double"
+												},
+												"estado": {
+													"type": "string"
+												},
+												"rolEquipo": {
+													"$ref": "#/components/schemas/_36_Enums.rolEquipo"
+												},
+												"rol": {
+													"type": "string"
+												},
+												"nit": {
+													"type": "string"
+												},
+												"nombreEmpresa": {
+													"type": "string"
+												},
+												"tipoUsuario": {
+													"$ref": "#/components/schemas/_36_Enums.TipoUsuario"
+												},
+												"fotoPerfil": {
+													"type": "string"
+												},
+												"direccion": {
+													"type": "string"
+												},
+												"telefono": {
+													"type": "string"
+												},
+												"nombreCompleto": {
+													"type": "string"
+												},
+												"password": {
+													"type": "string"
+												},
+												"correo": {
+													"type": "string"
+												},
+												"username": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"deletedAt",
+												"idUsuario",
+												"updatedAt",
+												"createdAt",
+												"perfilCompleto",
+												"empresaId",
+												"estado",
+												"rolEquipo",
+												"rol",
+												"nit",
+												"nombreEmpresa",
+												"tipoUsuario",
+												"fotoPerfil",
+												"direccion",
+												"telefono",
+												"nombreCompleto",
+												"password",
+												"correo",
+												"username"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"mensaje": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"mensaje"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene un miembro del equipo por su ID.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/equipo.controller)",
+				"tags": [
+					"Equipo"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "ActualizarEquipo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"deletedAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"idUsuario": {
+													"type": "number",
+													"format": "double"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"perfilCompleto": {
+													"type": "boolean"
+												},
+												"empresaId": {
+													"type": "number",
+													"format": "double"
+												},
+												"estado": {
+													"type": "string"
+												},
+												"rolEquipo": {
+													"$ref": "#/components/schemas/_36_Enums.rolEquipo"
+												},
+												"rol": {
+													"type": "string"
+												},
+												"nit": {
+													"type": "string"
+												},
+												"nombreEmpresa": {
+													"type": "string"
+												},
+												"tipoUsuario": {
+													"$ref": "#/components/schemas/_36_Enums.TipoUsuario"
+												},
+												"fotoPerfil": {
+													"type": "string"
+												},
+												"direccion": {
+													"type": "string"
+												},
+												"telefono": {
+													"type": "string"
+												},
+												"nombreCompleto": {
+													"type": "string"
+												},
+												"password": {
+													"type": "string"
+												},
+												"correo": {
+													"type": "string"
+												},
+												"username": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"deletedAt",
+												"idUsuario",
+												"updatedAt",
+												"createdAt",
+												"perfilCompleto",
+												"empresaId",
+												"estado",
+												"rolEquipo",
+												"rol",
+												"nit",
+												"nombreEmpresa",
+												"tipoUsuario",
+												"fotoPerfil",
+												"direccion",
+												"telefono",
+												"nombreCompleto",
+												"password",
+												"correo",
+												"username"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"mensaje": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"mensaje"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Actualiza un miembro del equipo.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/equipo.controller)",
+				"tags": [
+					"Equipo"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Partial_EquipoDTO_"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/equipo/eliminar-logico/{id}": {
+			"delete": {
+				"operationId": "EliminarLogico",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"anyOf": [
+										{
+											"properties": {
+												"deletedAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"idUsuario": {
+													"type": "number",
+													"format": "double"
+												},
+												"updatedAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"createdAt": {
+													"type": "string",
+													"format": "date-time"
+												},
+												"perfilCompleto": {
+													"type": "boolean"
+												},
+												"empresaId": {
+													"type": "number",
+													"format": "double"
+												},
+												"estado": {
+													"type": "string"
+												},
+												"rolEquipo": {
+													"$ref": "#/components/schemas/_36_Enums.rolEquipo"
+												},
+												"rol": {
+													"type": "string"
+												},
+												"nit": {
+													"type": "string"
+												},
+												"nombreEmpresa": {
+													"type": "string"
+												},
+												"tipoUsuario": {
+													"$ref": "#/components/schemas/_36_Enums.TipoUsuario"
+												},
+												"fotoPerfil": {
+													"type": "string"
+												},
+												"direccion": {
+													"type": "string"
+												},
+												"telefono": {
+													"type": "string"
+												},
+												"nombreCompleto": {
+													"type": "string"
+												},
+												"password": {
+													"type": "string"
+												},
+												"correo": {
+													"type": "string"
+												},
+												"username": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"deletedAt",
+												"idUsuario",
+												"updatedAt",
+												"createdAt",
+												"perfilCompleto",
+												"empresaId",
+												"estado",
+												"rolEquipo",
+												"rol",
+												"nit",
+												"nombreEmpresa",
+												"tipoUsuario",
+												"fotoPerfil",
+												"direccion",
+												"telefono",
+												"nombreCompleto",
+												"password",
+												"correo",
+												"username"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"mensaje": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"mensaje"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"description": "Realiza eliminación lógica de un miembro del equipo.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/equipo.controller)",
+				"tags": [
+					"Equipo"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/equipo/todos/{empresaId}": {
+			"delete": {
+				"operationId": "EliminarTodoElEquipo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Elimina todos los miembros del equipo de una empresa.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/equipo.controller)",
+				"tags": [
+					"Equipo"
+				],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "empresaId",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/comentarios/{productoId}": {
+			"get": {
+				"operationId": "GetComentariosPorProducto",
+				"responses": {
+					"200": {
+						"description": "Lista de comentarios.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/ComentarioDTO"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"description": "Obtiene los comentarios asociados a un producto.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/comentarios.controller)",
+				"tags": [
+					"Comentarios"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID del producto.",
+						"in": "path",
+						"name": "productoId",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/comentarios": {
+			"post": {
+				"operationId": "CrearComentario",
+				"responses": {
+					"200": {
+						"description": "Comentario creado.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ComentarioDTO"
+								}
+							}
+						}
+					}
+				},
+				"description": "Crea un nuevo comentario para un producto.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/comentarios.controller)",
+				"tags": [
+					"Comentarios"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"description": "Datos del comentario.",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CrearComentarioBody",
+								"description": "Datos del comentario."
+							}
+						}
+					}
+				}
+			}
+		},
+		"/comentarios/{idComentario}": {
+			"put": {
+				"operationId": "ActualizarComentario",
+				"responses": {
+					"200": {
+						"description": "Comentario actualizado.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ComentarioDTO"
+								}
+							}
+						}
+					}
+				},
+				"description": "Actualiza un comentario existente.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/comentarios.controller)",
+				"tags": [
+					"Comentarios"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID del comentario.",
+						"in": "path",
+						"name": "idComentario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "Nuevo contenido del comentario.",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ActualizarComentarioBody",
+								"description": "Nuevo contenido del comentario."
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "EliminarComentario",
+				"responses": {
+					"200": {
+						"description": "Mensaje de confirmación.",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"mensaje": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"mensaje"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"description": "Elimina un comentario existente.\r\n\r\n👉 [Documentación completa del controlador en GitHub](https://mari0724.github.io/producttrack/docs/backend/controllers/comentarios.controller)",
+				"tags": [
+					"Comentarios"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"description": "ID del comentario.",
+						"in": "path",
+						"name": "idComentario",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
