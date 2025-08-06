@@ -21,12 +21,10 @@ interface MulterRequest extends Request {
 
 // CORS config
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174', 'https://outstanding-strength-production.up.railway.app'],
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true
 }));
-
-app.options('*', cors());
 
 // Middleware Body Parser
 app.use(bodyParser.json({ limit: "3mb" }));
@@ -66,7 +64,7 @@ app.get('/', (req: Request, res: Response) => {
   res.json({ "ms": "Bienvenido a mi aplicación para probar las rutas en Swagger necesitas estar en entorno local por seguridad, si estas en producción puedes probar las mismas rutas en Postman" });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`El server corre bien en http://localhost:${PORT}`);
 });
