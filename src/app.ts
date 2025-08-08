@@ -79,9 +79,9 @@ app.get('/', (req: Request, res: Response) => {
   res.json({ "ms": "Bienvenido a mi aplicación para probar las rutas en Swagger necesitas estar en entorno local por seguridad, si estas en producción puedes probar las mismas rutas en Postman" });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
-  console.log(`El server corre bien en http://localhost:${PORT}`);
+  console.log(`El server corre bien en ${PORT}`);
 });
 
 export default app;
