@@ -20,12 +20,7 @@ interface MulterRequest extends Request {
 }
 
 // CORS config
-app.use(cors({
-  origin: ['*'],
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['*'],
-  credentials: true
-}));
+app.use(cors());
 
 // Middleware Body Parser
 app.use(bodyParser.json({ limit: "3mb" }));
