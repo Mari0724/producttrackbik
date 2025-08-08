@@ -19,9 +19,23 @@ interface MulterRequest extends Request {
   file?: Express.Multer.File;
 }
 
-// CORS config
+// Lista de orígenes permitidos
+const allowedOrigins = [
+  'https://producttrackft-nenyopj0v-emilias-projects-e9cb33ff.vercel.app'
+];
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174', 'https://producttrackft.vercel.app', 'https://producttrackft-nenyopj0v-emilias-projects-e9cb33ff.vercel.app'],
+  origin: function(origin, callback) {
+    // Permite solicitudes sin origin (como curl o Postman)
+    if (!origin) return callback(null, true);
+
+    // Verifica si el origen está en la lista blanca
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('No autorizado por CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
