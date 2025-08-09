@@ -60,6 +60,16 @@ app.get('/', (req: Request, res: Response) => {
   res.json({ "ms": "Bienvenido a mi aplicación para probar las rutas en Swagger necesitas estar en entorno local por seguridad, si estas en producción puedes probar las mismas rutas en Postman" });
 });
 
+// Servir archivos estáticos del frontend (Vite)
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+
+// Redirigir todas las rutas que no sean API o Swagger al index.html
+app.get("*", (req, res) => {
+  if (!req.path.startsWith("/api") && !req.path.startsWith("/docs")) {
+    res.sendFile(path.join(__dirname, "../../frontend/dist", "index.html"));
+  }
+});
+
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`El server corre bien en ${PORT}`);
