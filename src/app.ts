@@ -64,10 +64,8 @@ app.get('/', (req: Request, res: Response) => {
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
 // Redirigir todas las rutas que no sean API o Swagger al index.html
-app.get("*", (req, res) => {
-  if (!req.path.startsWith("/api") && !req.path.startsWith("/docs")) {
-    res.sendFile(path.join(__dirname, "../../frontend/dist", "index.html"));
-  }
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
 });
 
 const PORT = process.env.PORT;
