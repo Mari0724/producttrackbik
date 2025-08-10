@@ -64,5 +64,3 @@ const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`El server corre bien en ${PORT}`);
 });
-
-export default app;
