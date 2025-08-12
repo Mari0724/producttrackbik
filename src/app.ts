@@ -38,10 +38,6 @@ const swaggerFilePath = path.join(__dirname, "../docs/swagger.json");
 const swaggerRaw = fs.readFileSync(swaggerFilePath, "utf8");
 const swaggerData = JSON.parse(JSON.stringify(JSON.parse(swaggerRaw)));
 
-if (process.env.NODE_ENV !== "production") {
-  app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerData));
-}
-
 // Ruta para subida de imágenes
 app.post('/upload', uploadProductos.single('image'), (req: MulterRequest, res: Response) => {
   if (!req.file) {
